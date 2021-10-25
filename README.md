@@ -135,17 +135,63 @@ public class Program
 
 				case 4: // consultar cuenta cliente
 					
+					Console.WriteLine("¿Usted ya tiene cuenta?");
+					Console.WriteLine("1. Si");
+					Console.WriteLine("2. No");
+					string Cuenta = Console.ReadLine();
+					
+					if(int.Parse(Cuenta) == 1)
+					{
+						Console.WriteLine("Ingrese su ID");
+						string ID = Console.ReadLine();
+						for (int i = 0; i<CuentasClientes.Length; i++)
+						{
+							if(CuentasClientes[i] == uint.Parse(ID))
+							{
+								Console.WriteLine("La Cuenta: " + CuentasClientes[i] + " tiene un saldo de " + EstadoDeCuenta[i]);
+							
+								if(EstadoDeCuenta[i] < 0)
+								{
+									Console.WriteLine("Usted esta en deuda");
+								}
+							
+								if(EstadoDeCuenta[i] == 0)
+								{
+									Console.WriteLine("Usted esta en paz y salvo");
+								}
+							
+								if(EstadoDeCuenta[i] > 0)
+								{
+									Console.WriteLine("Usted ested tiene plata");
+								}
+							}
+						}
+					}
+					
+					
+					if(int.Parse(Cuenta) == 2)
+					{
+						
+						Console.WriteLine("Ingrese su ID");
+						string IDNuevo = Console.ReadLine();
+						
+						Array.Resize<uint>(ref CuentasClientes, CuentasClientes.Length + 1  );
+						Array.Resize<int>(ref EstadoDeCuenta, EstadoDeCuenta.Length + 1 );
+						CuentasClientes[CuentasClientes.Length -1] = uint.Parse(IDNuevo);
+						EstadoDeCuenta[ EstadoDeCuenta.Length -1] = 0;
+						Console.WriteLine("Se Creo una nueva cuenta :D");
+					}
 					
 				break;
 
 				case 5: // Actualizar cuenta cliente
 					
-				
+					
 					
 				break;
 				case 6:// Informe de ventas
 					
-				
+					
 				break;
 				
 				case 7:
