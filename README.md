@@ -72,11 +72,46 @@ public class Program
 
 				case 2://Suma Rapida de Productos
 					
+					Console.WriteLine("Cuantos Productos desea Levar?");
+					string R1 = Console.ReadLine();
+					Array.Resize<int>(ref CarritoPrecios, CarritoPrecios.Length + int.Parse(R1));
+					Array.Resize<string>(ref CarritoProductos, CarritoProductos.Length + int.Parse(R1));
+					int TTotal = 0;
+					for (int i = 0; i < int.Parse(R1); i++)
+					{
+						Console.WriteLine("Ingrese el nombre del producto");
+						string Item2 = Console.ReadLine();
+						bool ProductoEncontrado2 = false;
+							for (int j = 0; j <Productos.Length; j++)
+							{
+								if(Productos[j].Equals(Item2))
+								{
+									ProductoEncontrado2 = true;
+										Console.WriteLine("El producto " + Productos[j] + " Tiene un valor de: " + Precios[j]);
+										TTotal += Precios[j];	
+										CarritoPrecios[NProductos] = Precios[j];
+										CarritoProductos[NProductos] = Productos[j];
+									NProductos ++;
+								}
+								else if (!ProductoEncontrado2)
+								{
+									ProductoEncontrado = false;
+								} 
+							}
 					
+							if(!ProductoEncontrado2)
+							{
+								Console.WriteLine("El producto que ingreso no existe");
+							}
+					}
+					
+					Console.WriteLine("La suma es de: " + TTotal);
+					Total += TTotal;
 				break;
 						
 				case 3: // Pagar cuenta
 					
+				
 					
 				break;
 
@@ -88,12 +123,12 @@ public class Program
 
 				case 5: // Actualizar cuenta cliente
 					
-				
+					
 					
 				break;
 				case 6:// Informe de ventas
 					
-					
+				
 				break;
 				
 				case 7:
@@ -104,8 +139,7 @@ public class Program
 
 				case 8://Salir
 					
-					
-					
+				
 				break;
 
 				default: 
