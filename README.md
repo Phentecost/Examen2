@@ -111,19 +111,36 @@ public class Program
 						
 				case 3: // Pagar cuenta
 					
-				
+					Console.WriteLine("La Cuenta tiene un valor de: " + Total);
+					Console.WriteLine("Porfavor eleja un metodo de pago");
+					Console.WriteLine("1. Pago en efectivo");
+					Console.WriteLine("2. Fiar");
+					string R = Console.ReadLine();
+					
+					if(int.Parse(R) == 1)
+					{
+						Console.WriteLine("¿Con cuanto va a pagar?");
+						string Plata = Console.ReadLine();
+						
+						int Devuelta = int.Parse(Plata) - Total;
+						Console.WriteLine("Su devuelta es de: " + Devuelta);
+					}
+					
+					if(int.Parse(R) == 2)
+					{
+						Deuda = Total;
+					}
 					
 				break;
 
 				case 4: // consultar cuenta cliente
 					
-				
 					
 				break;
 
 				case 5: // Actualizar cuenta cliente
 					
-					
+				
 					
 				break;
 				case 6:// Informe de ventas
@@ -139,7 +156,8 @@ public class Program
 
 				case 8://Salir
 					
-				
+					
+					
 				break;
 
 				default: 
