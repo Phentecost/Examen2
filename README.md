@@ -236,12 +236,13 @@ public class Program
 
 				case 8://Salir
 					
-					
+					Console.WriteLine("Vuelva Proto :D");
+					Ejecucion = false;
 					
 				break;
 
 				default: 
-					
+					Console.WriteLine("Se ingreso un valor por fuera del rango");
 				break;
 			}
 		}
